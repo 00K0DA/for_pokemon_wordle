@@ -17,13 +17,13 @@ soup = BeautifulSoup(data, 'html.parser')
 pokemon_scrolldown = soup.find("select", id="no", class_="space")
 raw_pokemon_list = pokemon_scrolldown.findAll('option')
 pokemon_list = [d.string for d in raw_pokemon_list]
-
 pokemon_regex = re.compile(r'(\d{3}): (.{2,5})')
+katakana_regex = re.compile(r'[\u30A1-\u30F4|\u30FC]+')
 
 with open(os.path.join(output_path, output_filename), "w", encoding='utf-8') as f:
     for pokemon in pokemon_list:
         result = pokemon_regex.search(pokemon)
         pokemon_id = result.group(1)
         pokemon_name = result.group(2)
-        if len(pokemon_name) == 5:
-           f.write(pokemon_name + sep)
+        if len(pokemon_name) == 5 and katakana_regex.fullmatch(pokemon_name):
+            f.write(pokemon_name + sep)
