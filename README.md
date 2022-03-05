@@ -2,7 +2,8 @@
 calculate its score for first move in pokemon wordle
 
 pokemon_collecor.pyを実行すると，第4世代以前の5文字のポケモンをリストアップしたpokemon.datが生成されます．
-  ポケモン名は，ポケモン徹底攻略(https://yakkun.com/dp/zukan/)様より取得しています．
+  ポケモン名は，ポケモン徹底攻略様より取得しています．
+  (https://yakkun.com/dp/zukan/)
 
 pokemon_analyzer.pyを実行すると，analysis0-5.csvが生成されます．
   analysis0.csv：ポケモン名にその文字が使われた回数の合計を，文字ごとに降順で格納したcsvファイル
